@@ -1,0 +1,9 @@
+# 文件名: requirements.txt
+Flask==2.2.3
+psycopg2-binary==2.9.5
+pytest==7.4.0
+pytest-cov==4.1.0
+pytest-mock==3.11.1
+pdfkit>=0.6.1
+python-dotenv>=0.21.0
+flask-testing

@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T08:02:07.197Z",
+    "end": "2025-04-23T08:02:07.349Z",
+    "duration": 152,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "71a6d5b1-5438-42a8-8fdf-9d1cfecfcc5b",
+      "title": "",
+      "fullFile": "cypress/component/GenerateReportButton.cy.jsx",
+      "file": "cypress/component/GenerateReportButton.cy.jsx",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b23ae1e6-04f2-4a90-b1f9-077fcd95820f",
+          "title": "GenerateReportButton 组件",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "没有 metric 时弹出 warning",
+              "fullTitle": "GenerateReportButton 组件 没有 metric 时弹出 warning",
+              "timedOut": null,
+              "duration": 132,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.clearLocalStorage(`report_metrics_guest`);\ncy.mountWithRouter(/* @__PURE__ */ jsxDEV(GenerateReportButton, {}, void 0, false, {\n  fileName: \"/Users/huyang/Desktop/capstone-project-2025-t1-25t1-9900-f14a-brioche-Docker_implement/frontend/cypress/component/GenerateReportButton.cy.jsx\",\n  lineNumber: 9,\n  columnNumber: 24\n}, this));\ncy.contains(\"Generate Report\").click();\ncy.contains(\"No metrics added to report yet\").should(\"be.visible\");",
+              "err": {},
+              "uuid": "04bc9946-f25d-4513-9323-5b0ba5e3be71",
+              "parentUUID": "b23ae1e6-04f2-4a90-b1f9-077fcd95820f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "04bc9946-f25d-4513-9323-5b0ba5e3be71"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 132,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "component-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/component",
+        "reportFilename": "component-report",
+        "quiet": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

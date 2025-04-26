@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T07:59:22.756Z",
+    "end": "2025-04-23T07:59:23.324Z",
+    "duration": 568,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f697a25c-ffac-4d3b-b52f-12991d4328b5",
+      "title": "",
+      "fullFile": "cypress/e2e/Register.cy.js",
+      "file": "cypress/e2e/Register.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "6e7969a8-aa2a-4d27-97db-61ee78984ddc",
+          "title": "注册页",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "应加载并展示 Create Account 及输入框",
+              "fullTitle": "注册页 应加载并展示 Create Account 及输入框",
+              "timedOut": null,
+              "duration": 550,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`${base}/register`);\ncy.contains('Create Account').should('be.visible');\ncy.get('input[placeholder=\"Choose a username\"]').should('exist');\ncy.get('input[placeholder=\"Create a password\"]').should('exist');",
+              "err": {},
+              "uuid": "88ee6aea-7070-4f16-ae87-96ce15947717",
+              "parentUUID": "6e7969a8-aa2a-4d27-97db-61ee78984ddc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "88ee6aea-7070-4f16-ae87-96ce15947717"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 550,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "e2e-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/e2e",
+        "reportFilename": "e2e-report",
+        "quiet": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

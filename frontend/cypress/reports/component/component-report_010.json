@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-04-23T08:02:12.014Z",
+    "end": "2025-04-23T08:02:12.108Z",
+    "duration": 94,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "18894944-0a27-467b-926d-24950cc2d46c",
+      "title": "",
+      "fullFile": "cypress/component/MetricsGrid.cy.jsx",
+      "file": "cypress/component/MetricsGrid.cy.jsx",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a77ee3cd-f40d-40ff-948e-555fa595bd80",
+          "title": "MetricsGrid 组件",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "渲染多个 category 项",
+              "fullTitle": "MetricsGrid 组件 渲染多个 category 项",
+              "timedOut": null,
+              "duration": 74,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const data = [\n  {\n    category: { categories_uri: \"c1\", categories_label: \"Cat1\" },\n    metrics: []\n  },\n  {\n    category: { categories_uri: \"c2\", categories_label: \"Cat2\" },\n    metrics: []\n  }\n];\ncy.mountWithRouter(\n  /* @__PURE__ */ jsxDEV(\n    MetricsGrid,\n    {\n      combinedData: data,\n      industry: \"I\",\n      reportingYear: \"2022-12-31\",\n      company: \"Co\"\n    },\n    void 0,\n    false,\n    {\n      fileName: \"/Users/huyang/Desktop/capstone-project-2025-t1-25t1-9900-f14a-brioche-Docker_implement/frontend/cypress/component/MetricsGrid.cy.jsx\",\n      lineNumber: 18,\n      columnNumber: 7\n    },\n    this\n  )\n);\ncy.contains(\"Cat1\").should(\"exist\");\ncy.contains(\"Cat2\").should(\"exist\");",
+              "err": {},
+              "uuid": "718c31ff-8430-4673-965c-7c2a5807b4bf",
+              "parentUUID": "a77ee3cd-f40d-40ff-948e-555fa595bd80",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "718c31ff-8430-4673-965c-7c2a5807b4bf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 74,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "component-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/component",
+        "reportFilename": "component-report",
+        "quiet": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

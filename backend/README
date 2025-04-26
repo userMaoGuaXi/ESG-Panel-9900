@@ -1,0 +1,201 @@
+项目名称
+这是一个基于 Flask 和 PostgreSQL 的后端项目，包含多张表（industry、eotable、ertable、gotable、grtable、sotable、srtable），并通过 RESTful API 对外提供数据查询接口。
+
+目录结构
+bash
+复制
+your_project/
+├── app/
+│   ├── __init__.py        # 定义 create_app() 函数，创建 Flask 实例并注册蓝图
+│   ├── db_utils.py        # 数据库连接相关函数
+│   └── routes/            # 存放各个表对应的路由文件
+│       ├── __init__.py    # 空文件或可选初始化逻辑
+│       ├── industry_routes.py
+│       ├── eotable_routes.py
+│       ├── ertable_routes.py
+│       ├── gotable_routes.py
+│       ├── grtable_routes.py
+│       ├── sotable_routes.py
+│       └── srtable_routes.py
+├── requirements.txt       # Python 依赖列表
+└── run.py                 # Flask 入口文件
+说明：
+
+app/：Flask 应用的主目录
+
+__init__.py：定义 create_app() 函数，创建 Flask 实例并注册各个蓝图
+
+db_utils.py：提供 get_connection() 函数，用于建立并返回一个 PostgreSQL 数据库连接
+
+routes/：各个表对应的路由文件，每个文件定义了一个 Blueprint，用于处理该表的 REST API 接口
+
+requirements.txt：列出项目所需的 Python 包及其版本
+
+run.py：项目入口文件，运行该文件后启动 Flask 应用
+
+环境准备
+1. 安装 Python 3.7+
+请确保你的系统中已安装 Python 3.7 或更高版本。
+
+2. 安装 PostgreSQL
+如果你的系统中还没有 PostgreSQL，请安装并启动 PostgreSQL。
+
+使用 pgAdmin 或命令行工具创建一个数据库（例如：postgres 或其他自定义名称）。
+
+3. 设置环境变量（可选）
+项目中使用了 os.getenv("DB_HOST") 等函数读取数据库连接信息。如果需要自定义连接参数，可在系统环境变量中设置下列变量：
+
+DB_HOST：数据库主机名（默认为 localhost）
+
+DB_NAME：数据库名称（默认为 postgres）
+
+DB_USER：数据库用户名（默认为 postgres）
+
+DB_PASSWORD：数据库密码（默认为 postgres）
+
+例如，在 Windows 下的 CMD 中可以使用：
+
+batch
+复制
+set DB_HOST=your_db_host
+set DB_NAME=your_db_name
+set DB_USER=your_db_user
+set DB_PASSWORD=your_db_password
+在 PowerShell 中则可以使用：
+
+powershell
+复制
+$env:DB_HOST = "your_db_host"
+$env:DB_NAME = "your_db_name"
+$env:DB_USER = "your_db_user"
+$env:DB_PASSWORD = "your_db_password"
+或者，你也可以直接在 db_utils.py 中修改默认值。
+
+安装依赖
+在项目根目录下（包含 requirements.txt 的目录），运行以下命令安装项目所需的依赖：
+
+bash
+复制
+pip install -r requirements.txt
+这会安装 Flask、psycopg2 等依赖包。
+
+运行项目
+在项目根目录下运行以下命令启动 Flask 应用：
+
+bash
+复制
+python run.py
+如果成功，你会在终端看到类似输出：
+
+pgsql
+复制
+ * Serving Flask app 'app'
+ * Debug mode: on
+ * Running on http://0.0.0.0:5000 (Press CTRL+C to quit)
+表示 Flask 开发服务器已启动，默认监听在 5000 端口。
+
+若仅允许本地访问，可将 run.py 中的 host='0.0.0.0' 改为 host='127.0.0.1'。
+
+在生产环境中，不建议使用 Flask 自带的开发服务器，推荐使用 Gunicorn / uWSGI 搭配 Nginx 部署。
+
+访问接口
+所有路由文件中定义的 Blueprint 都注册在 URL 前缀 /api 下，以下是各接口示例：
+
+1. 查询 Industry 表
+路由文件：app/routes/industry_routes.py
+
+接口示例：
+
+bash
+复制
+GET /api/industry/<perm_id>
+例如：
+
+ruby
+复制
+http://127.0.0.1:5000/api/industry/4297820283
+该接口查询 industrytable 中对应 perm_id 的数据。
+
+2. 查询其他表
+其他表接口类似：
+
+eotable_routes.py: GET /api/eotable/<perm_id>
+
+ertable_routes.py: GET /api/ertable/<perm_id>
+
+gotable_routes.py: GET /api/gotable/<perm_id>
+
+grtable_routes.py: GET /api/grtable/<perm_id>
+
+sotable_routes.py: GET /api/sotable/<perm_id>
+
+srtable_routes.py: GET /api/srtable/<perm_id>
+
+根据实际表结构和字段不同，需在对应的路由文件中调整 SQL 查询语句和返回的 JSON 字段映射。
+
+常见问题
+编码错误 ('utf-8' codec can't decode byte ...)
+可能原因：数据中包含非 UTF-8 编码的字符，或者插入数据时编码不一致。
+
+解决方法：
+
+在 db_utils.py 或各路由文件中显式设置客户端编码，如：
+
+python
+复制
+conn.set_client_encoding('UTF8')
+如果数据原本以 GBK 等编码插入，需要转换或清洗数据，确保所有数据都是合法的 UTF-8。
+
+环境变量未设置
+如果未设置 DB_HOST、DB_NAME 等，默认会使用 localhost + postgres + postgres 用户密码，请确保本地 PostgreSQL 存在对应账号和数据库。
+
+无法访问接口
+确认 run.py 正常运行；
+
+如果要在局域网内其他机器访问，请使用 host='0.0.0.0' 并检查防火墙或端口设置。
+
+生产环境部署
+不建议直接使用 Flask 开发服务器，推荐使用 Gunicorn / uWSGI 搭配 Nginx 部署，详细请参考 Flask 部署官方文档
+
+贡献与维护
+若需要对代码进行修改或扩展，请在对应的 routes 文件或 db_utils.py 中调整 SQL 查询和 JSON 映射。
+
+建议在新增路由或修改表结构时同步更新此 README，方便团队成员了解最新接口和字段信息。
+
+外部公司信息查询集成
+如果你希望在数据库中加入外部公司信息查询源，并与现有的 industry 表通过 perm_id 建立一对多关系，可以考虑以下方法：
+
+创建新表或映射表
+
+如创建一张 external_company_info 表，包含外部信息字段，并设置 perm_id 作为外键关联 industrytable：
+
+sql
+复制
+CREATE TABLE external_company_info (
+  ext_id SERIAL PRIMARY KEY,
+  perm_id BIGINT NOT NULL,
+  external_name TEXT,
+  external_rating TEXT,
+  last_update TIMESTAMP,
+  FOREIGN KEY (perm_id) REFERENCES industrytable(perm_id)
+);
+数据导入
+
+通过 Python 脚本、ETL 工具或 CSV 文件，将外部数据导入该表中。
+
+注意检查编码、字段格式和数据匹配，确保外部数据与 industrytable 中的 perm_id 一致。
+
+后端 API 集成
+
+在相应的 Flask 路由中，通过 JOIN 查询或分步查询，将 industrytable 与 external_company_info 的数据整合返回。例如：
+
+sql
+复制
+SELECT i.company_name, i.industry, i.perm_id, e.external_rating
+FROM industrytable i
+LEFT JOIN external_company_info e ON i.perm_id = e.perm_id
+WHERE i.perm_id = %s;
+根据需求调整返回的 JSON 格式。
+
+通过以上方式，就可以实现将外部公司信息查询源与现有数据库关联，并通过 REST API 对外提供统一查询接口。
+

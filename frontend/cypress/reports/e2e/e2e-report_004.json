@@ -1,0 +1,154 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-04-23T07:59:24.413Z",
+    "end": "2025-04-23T07:59:33.692Z",
+    "duration": 9279,
+    "testsRegistered": 3,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "897ce8dc-44a5-4588-b5f3-1115e3cb42f3",
+      "title": "",
+      "fullFile": "cypress/e2e/ReportPage.cy.js",
+      "file": "cypress/e2e/ReportPage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5fb86260-25a1-4f5d-8ec7-e529a4481439",
+          "title": "报表页",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "数据存在时应显示报表详情",
+              "fullTitle": "报表页 数据存在时应显示报表详情",
+              "timedOut": null,
+              "duration": 4720,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// 这里假设 localStorage 或拦截接口返回有效数据\ncy.visit(`${base}/report`, {\n  onBeforeLoad(win) {\n    win.localStorage.setItem('currentUser', 'guest');\n    // 如果你通过接口请求数据，也可以在此做 cy.intercept() 模拟\n  }\n});\ncy.get('.report-details').should('be.visible');\ncy.contains('ESG Score').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.report-details`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `.report-details`, but never found it.\n    at Context.eval (webpack://frontend/./cypress/e2e/ReportPage.cy.js:13:30)",
+                "diff": null
+              },
+              "uuid": "5d498bf4-5666-40d3-bc6b-0f1c6c48b0b8",
+              "parentUUID": "5fb86260-25a1-4f5d-8ec7-e529a4481439",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "数据缺失时应展示无数据提示",
+              "fullTitle": "报表页 数据缺失时应展示无数据提示",
+              "timedOut": null,
+              "duration": 203,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// 模拟数据缺失\ncy.intercept('GET', '/api/report*', {\n  statusCode: 404,\n  body: {}\n});\ncy.visit(`${base}/report`, {\n  failOnStatusCode: false\n});\ncy.contains('No report data available').should('be.visible');",
+              "err": {},
+              "uuid": "a3e48278-9399-47ff-b2a2-0ee90f198444",
+              "parentUUID": "5fb86260-25a1-4f5d-8ec7-e529a4481439",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "点击返回按钮应回到仪表盘",
+              "fullTitle": "报表页 点击返回按钮应回到仪表盘",
+              "timedOut": null,
+              "duration": 4315,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(`${base}/report`, {\n  onBeforeLoad(win) {\n    win.localStorage.setItem('currentUser', 'guest');\n  }\n});\ncy.contains('button', 'Back').click();\ncy.url().should('include', '/dashboard');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'http://localhost:5173/history' to include '/dashboard'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'http://localhost:5173/history' to include '/dashboard'\n    at Context.eval (webpack://frontend/./cypress/e2e/ReportPage.cy.js:31:13)",
+                "diff": null
+              },
+              "uuid": "76464b2d-2c1e-4304-9e4c-cfd4ee13ccdc",
+              "parentUUID": "5fb86260-25a1-4f5d-8ec7-e529a4481439",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a3e48278-9399-47ff-b2a2-0ee90f198444"
+          ],
+          "failures": [
+            "5d498bf4-5666-40d3-bc6b-0f1c6c48b0b8",
+            "76464b2d-2c1e-4304-9e4c-cfd4ee13ccdc"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 9238,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "e2e-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/e2e",
+        "reportFilename": "e2e-report",
+        "quiet": true,
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
