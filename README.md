@@ -346,7 +346,9 @@ npm install cypress
 ```
 
 #### Start the development server (tests depend on a running server)
+```
 docker-compose up --build
+```
 
 #### All tests
 ```
