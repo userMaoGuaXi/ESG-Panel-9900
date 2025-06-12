@@ -310,6 +310,7 @@ Currently, the backend test coverage rate reaches 86%, and the coverage rates of
 * app/routes/stardog_routes.py: 83%
 
 ### The front-end test layout is as follows
+```
 frontend/cypress/
 ├── component/ # component
 │ ├── FilterBar.cy.jsx
@@ -325,6 +326,7 @@ frontend/cypress/
 ├── Register.cy.js
 ├── ReportPage.cy.js
 └── app.cy.js
+```
 
 ## Run command:
 cd .. # to capstone-project-2025-t1-25t1-9900-f14a-brioche-New-Docker-Demo
