@@ -328,21 +328,21 @@ frontend/cypress/
 └── app.cy.js
 ```
 
-- Run command:
+#### Run command:
 cd .. # to capstone-project-2025-t1-25t1-9900-f14a-brioche-New-Docker-Demo
 cd frontend
 
 pip install -r requirements.txt
 npm install cypress
 
-- Start the development server (tests depend on a running server)
+#### Start the development server (tests depend on a running server)
 docker-compose up --build
 
-- All tests
+#### All tests
 npx cypress run --e2e #Run end to end test
 npx cypress run --component #Run component test
 
-- Backend test coverage
+#### Backend test coverage
 End to end: 100%
 Components: 100%
 
