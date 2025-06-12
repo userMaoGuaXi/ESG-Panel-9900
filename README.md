@@ -276,18 +276,19 @@ services:
 ## The backend test layout is as follows
 
 backend/test/
-├── unit/ # Unit test: test independent modules or functions
-│ ├── test_auth.py # User authentication related function test
-│ ├── test_report.py # Report generation function test
-│ └── test_stardog.py # Stardog query and data processing test
-├── integration/ # Integration test: test module interaction
-│ ├── test_auth_db.py # Authentication module and database interaction test
-│ ├── test_report_db.py # Report module and database interaction test
-│ └── test_stardog_db.py # Stardog and PostgreSQL interaction test
-└── system/ # System test: test HTTP API endpoint
-├── test_auth_api.py # Authentication API interface test
-├── test_report_api.py # Report API interface test
-└── test_stardog_api.py # Stardog related API test
+├── unit/                    # Unit tests for independent modules/functions
+│   ├── test_auth.py
+│   ├── test_stardog.py
+│   └── test_report.py
+├── integration/             # Integration tests for module interactions
+│   ├── test_auth_db.py
+│   ├── test_stardog_db.py
+│   └── test_report_db.py
+└── system/                  # System tests for HTTP API endpoints
+    ├── test_auth_api.py
+    ├── test_stardog_api.py
+    └── test_report_api.py
+
 
 ## Run command:
 cd backend
