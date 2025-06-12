@@ -28,7 +28,7 @@ This project adopts a decoupled (frontend-backend separated) architecture and ut
   - A development IDE such as VSCode, PyCharm, etc.
 
 - **Key Dependencies**
-  - Frontend: Vite  
+  - Frontend: Vite, React, Node.js   
   - Backend: Flask, flask_cors, pdfkit  
   - Database: PostgreSQL
 
