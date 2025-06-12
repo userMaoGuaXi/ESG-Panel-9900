@@ -289,6 +289,7 @@ backend/test/
     ├── test_auth_api.py
     ├── test_stardog_api.py
     └── test_report_api.py
+```
 
 ## Run command:
 cd backend
