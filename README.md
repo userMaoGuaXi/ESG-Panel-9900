@@ -292,14 +292,20 @@ backend/test/
 ```
 
 - Run command:
+```
 cd backend
 pip install -r requirements.txt
+```
 
 - All tests
+```
 pytest
+```
 
 - With coverage
+```
 pytest --cov=app --cov-report=term-missing
+```
 
 - Backend test coverage
 Currently, the backend test coverage rate reaches 86%, and the coverage rates of major modules are as follows:
