@@ -272,8 +272,8 @@ services:
 ### 7.2 Integrated Testing
 - When running the entire setup via Docker Compose, visit the frontend to verify that API calls are working properly, inspect backend logs for errors, and confirm that data queries return the expected results.
 
-## 7.3 test
-## The backend test layout is as follows
+### 7.3 test
+- The backend test layout is as follows
 
 ```text
 backend/test/
@@ -291,17 +291,17 @@ backend/test/
     └── test_report_api.py
 ```
 
-## Run command:
+- Run command:
 cd backend
 pip install -r requirements.txt
 
-# All tests
+- All tests
 pytest
 
-# With coverage
+- With coverage
 pytest --cov=app --cov-report=term-missing
 
-# Backend test coverage
+- Backend test coverage
 Currently, the backend test coverage rate reaches 86%, and the coverage rates of major modules are as follows:
 * app/__init__.py: 100%
 * app/db_utils.py: 100%
@@ -328,21 +328,21 @@ frontend/cypress/
 └── app.cy.js
 ```
 
-## Run command:
+- Run command:
 cd .. # to capstone-project-2025-t1-25t1-9900-f14a-brioche-New-Docker-Demo
 cd frontend
 
 pip install -r requirements.txt
 npm install cypress
 
-## Start the development server (tests depend on a running server)
+- Start the development server (tests depend on a running server)
 docker-compose up --build
 
-# All tests
+- All tests
 npx cypress run --e2e #Run end to end test
 npx cypress run --component #Run component test
 
-# Backend test coverage
+- Backend test coverage
 End to end: 100%
 Components: 100%
 
