@@ -275,6 +275,7 @@ services:
 ## 7.3 test
 ## The backend test layout is as follows
 
+```text
 backend/test/
 ├── unit/                    # Unit tests for independent modules/functions
 │   ├── test_auth.py
@@ -288,7 +289,6 @@ backend/test/
     ├── test_auth_api.py
     ├── test_stardog_api.py
     └── test_report_api.py
-
 
 ## Run command:
 cd backend
